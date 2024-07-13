@@ -2,6 +2,7 @@ package com.alurachallenge.forohub.controller;
 
 import com.alurachallenge.forohub.domain.usuario.DatosAutenticacionUsuario;
 import com.alurachallenge.forohub.domain.usuario.Usuario;
+import com.alurachallenge.forohub.security.DatosJWTToken;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class AutenticacionController {
                 datosAutenticacionUsuario.correo(),
                 datosAutenticacionUsuario.contrasena());
         var usuarioAutenticado = authenticationManager.authenticate(authToken);
-        var JWTtoken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
+        var JWTtoken = tokenService.verifyToken(String.valueOf((Usuario) usuarioAutenticado.getPrincipal()));
         return ResponseEntity.ok(new DatosJWTToken(JWTtoken));
     }
 }
