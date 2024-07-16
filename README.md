@@ -15,7 +15,7 @@ Configuración al crear el proyecto con Spring Initializr:
 - Spring Boot
 - Proyecto en formato JAR
 
-Dependencias para agregar al crear el proyecto con Spring Initializr:
+Dependencias del proyecto con Spring Initializr:
 
 - Lombok
 - Spring Web
